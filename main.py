@@ -32,7 +32,7 @@ link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var)
 link.pack()
 
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
-download.pack()
+download.pack(padx=10, pady=10)
 
 # Run app
 app.mainloop()
