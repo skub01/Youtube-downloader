@@ -1,6 +1,13 @@
 import tkinter
 import customtkinter
 from pytube import YouTube
+from pytube.exceptions import RegexMatchError
+import certifi
+import ssl
+
+# Set the SSL certificate path
+ssl._create_default_https_context = ssl._create_unverified_context
+ssl._DEFAULT_CERT_FILE = certifi.where()
 
 def startDownload():
     try: 
@@ -8,10 +15,11 @@ def startDownload():
         ytObject = YouTube(ytLink)
         video = ytObject.streams.get_highest_resolution()
         video.download()
-    except: 
+        print("Download complete!")
+    except RegexMatchError: 
         print("Invalid YouTube link!")
-    print("Download complete!")
-
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
 # System settings
 customtkinter.set_appearance_mode("System")
