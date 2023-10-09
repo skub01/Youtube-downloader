@@ -17,9 +17,9 @@ def startDownload():
         video.download()
         finishLabel.configure(text="Downloaded!")
     except RegexMatchError: 
-        print("Invalid YouTube link!")
+        finishLabel.configure(text="Invalid YouTube link!")
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        finishLabel.configure(text=f"An error occurred: {str(e)}", text_color="red")
 
 # System settings
 customtkinter.set_appearance_mode("System")
