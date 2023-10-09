@@ -32,6 +32,8 @@ def on_progress(stream, chunk, bytes_remaining):
     pPercentage.configure(text=per + "%")
     pPercentage.update()
 
+    progressBar.set(float(percentage_of_completion) / 100)
+
 # System settings
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
