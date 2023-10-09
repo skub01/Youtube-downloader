@@ -15,7 +15,7 @@ def startDownload():
         ytObject = YouTube(ytLink)
         video = ytObject.streams.get_highest_resolution()
         video.download()
-        print("Download complete!")
+        finishLabel.configure(text="Downloaded!")
     except RegexMatchError: 
         print("Invalid YouTube link!")
     except Exception as e:
@@ -39,6 +39,11 @@ url_var = tkinter.StringVar()
 link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var)
 link.pack()
 
+#Finished downloading
+finishLabel = customtkinter.CTkLabel(app, text="")
+finishLabel.pack()
+
+#Download button
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
 download.pack(padx=10, pady=10)
 
