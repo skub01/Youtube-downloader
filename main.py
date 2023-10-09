@@ -28,7 +28,9 @@ def on_progress(stream, chunk, bytes_remaining):
     total_size = stream.filesize
     bytes_downloaded = total_size - bytes_remaining
     percentage_of_completion = bytes_downloaded / total_size * 100
-    print(percentage_of_completion)
+    per = str(int(percentage_of_completion))
+    pPercentage.configure(text=per + "%")
+    pPercentage.update()
 
 # System settings
 customtkinter.set_appearance_mode("System")
@@ -57,7 +59,6 @@ pPercentage = customtkinter.CTkLabel(app, text="0%")
 pPercentage.pack()
 
 progressBar = customtkinter.CTkProgressBar(app, width=400)
-progressBar.set(0.5)
 progressBar.pack(padx=10, pady=10)
 
 #Download button
