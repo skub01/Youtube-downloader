@@ -34,6 +34,12 @@ def on_progress(stream, chunk, bytes_remaining):
 
     progressBar.set(float(percentage_of_completion) / 100)
 
+def resetFields():
+    link.delete(0, "end")  
+    finishLabel.configure(text="")  
+    pPercentage.configure(text="")
+    progressBar.set(0.0) 
+
 # System settings
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
@@ -61,11 +67,15 @@ pPercentage = customtkinter.CTkLabel(app, text="0%")
 pPercentage.pack()
 
 progressBar = customtkinter.CTkProgressBar(app, width=400)
+progressBar.set(0.0)
 progressBar.pack(padx=10, pady=10)
 
 #Download button
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
 download.pack(padx=10, pady=10)
+
+newDownloadButton = customtkinter.CTkButton(app, text="Download New Video", command=resetFields)
+newDownloadButton.pack(padx=10, pady=10)
 
 # Run app
 app.mainloop()
