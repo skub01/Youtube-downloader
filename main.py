@@ -38,6 +38,7 @@ def resetFields():
     link.delete(0, "end")  
     finishLabel.configure(text="")  
     pPercentage.configure(text="")
+    title.configure(text="")
     progressBar.set(0.0) 
 
 # System settings
