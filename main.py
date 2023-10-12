@@ -75,8 +75,8 @@ progressBar.pack(padx=10, pady=10)
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
 download.pack(padx=10, pady=10)
 
-newDownloadButton = customtkinter.CTkButton(app, text="Download New Video", command=resetFields)
-newDownloadButton.pack(padx=10, pady=10)
+""" newDownloadButton = customtkinter.CTkButton(app, text="Download New Video", command=resetFields)
+newDownloadButton.pack(padx=10, pady=10) """
 
 # Run app
 app.mainloop()
