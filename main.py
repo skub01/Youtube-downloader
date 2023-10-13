@@ -17,8 +17,8 @@ def startDownload():
         video.download()
 
         title.configure(text=ytObject.title)
-        finishLabel.configure(text="")
         finishLabel.configure(text="Downloaded!")
+        download.configure(text="Start new download")
     except RegexMatchError: 
         finishLabel.configure(text="Invalid YouTube link!")
     except Exception as e:
@@ -39,7 +39,7 @@ def resetFields():
     finishLabel.configure(text="")  
     pPercentage.configure(text="")
     title.configure(text="")
-    progressBar.set(0.0) 
+    progressBar.set(0.0)
 
 # System settings
 customtkinter.set_appearance_mode("System")
@@ -59,11 +59,11 @@ url_var = tkinter.StringVar()
 link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var)
 link.pack()
 
-#Finished downloading
+# Finished downloading
 finishLabel = customtkinter.CTkLabel(app, text="")
 finishLabel.pack()
 
-#Progress percent
+# Progress percent
 pPercentage = customtkinter.CTkLabel(app, text="0%")
 pPercentage.pack()
 
@@ -71,12 +71,9 @@ progressBar = customtkinter.CTkProgressBar(app, width=400)
 progressBar.set(0.0)
 progressBar.pack(padx=10, pady=10)
 
-#Download button
+# Download button
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
 download.pack(padx=10, pady=10)
-
-""" newDownloadButton = customtkinter.CTkButton(app, text="Download New Video", command=resetFields)
-newDownloadButton.pack(padx=10, pady=10) """
 
 # Run app
 app.mainloop()
