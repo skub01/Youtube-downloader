@@ -31,7 +31,8 @@ def on_progress(stream, chunk, bytes_remaining):
     bytes_downloaded = total_size - bytes_remaining
     percentage_of_completion = bytes_downloaded / total_size * 100
     per = str(int(percentage_of_completion))
-    
+    pPercentage.configure(text=per + "%")
+    pPercentage.update()
 
     progressBar.set(float(percentage_of_completion) / 100)
 
@@ -58,7 +59,7 @@ finishLabel = customtkinter.CTkLabel(app, text="")
 finishLabel.pack()
 
 # Progress percent
-pPercentage = customtkinter.CTkLabel(app, text="0%")
+pPercentage = customtkinter.CTkLabel(app, text="")
 pPercentage.pack()
 
 progressBar = customtkinter.CTkProgressBar(app, width=400)
